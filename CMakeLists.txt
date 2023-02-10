@@ -4,4 +4,4 @@ project(Informatics C)
 set(CMAKE_C_STANDARD 11)
 
 add_executable(Informatics
-        Informatics-1/lab5/Ex2/9.c)
+        Informatics-2/rl1/main.cpp)
