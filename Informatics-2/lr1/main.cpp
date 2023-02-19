@@ -37,7 +37,7 @@ int* second_imp(int n){
     int i = 0;
     while(n != 0){
         arr[i] = n % 10;
-        n /= 10;
+        n /= 10; // n = n/10; 123/10 = 12
         i++;
     }
     return arr;
