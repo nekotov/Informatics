@@ -1,10 +1,10 @@
 #include <iostream>
-#include <math.h>
+#include <cmath>
 
 using std::cin;
 using std::cout;
 
-double min(double* arr, int size){
+double min(const double* arr, int size){
     double min = arr[0];
     for(int i = 1; i < size; i++){
         if(arr[i] < min){
@@ -14,7 +14,7 @@ double min(double* arr, int size){
     return min;
 }
 
-double max(double* arr, int size){
+double max(const double* arr, int size){
     double max = arr[0];
     for(int i = 1; i < size; i++){
         if(arr[i] > max){
@@ -60,7 +60,7 @@ void histogram(double* arr, int size){
 }
 
 
-double linear_search(double* arr, int size, double value){
+double linear_search(const double* arr, int size, double value){
     for(int i = 0; i < size; i++){
         if(arr[i] == value){
             return i;
@@ -155,17 +155,14 @@ double* sort(double* arr, int size, int sort_type, int sort_part, int sort_metho
     int end_index;
     double* sorted_arr;
     if(sort_part == 2){
-        // create double array with size 2, fist element is start index, second is end index
         double* indexes = new double[2];
         indexes[0] = linear_search(arr, size, min(arr, size));
         indexes[1] = linear_search(arr, size, max(arr, size));
-        //sort indexes
         insertion_sort(indexes, 2);
         start_index = indexes[0];
         end_index = indexes[1];
         size = end_index - start_index - 1;
         sorted_arr = new double[size];
-        // fill sorted array with values from arr in range from start_index to end_index excluding them
         for(int i = 0; i < size; i++){
             sorted_arr[i] = arr[start_index + i + 1];
         }
@@ -235,13 +232,12 @@ int main(){
     int arr_size;
     cin >> arr_size;
     double* arr = new double[arr_size];
-    // randomize array in range 0,50
     for(int i = 0; i < arr_size; i++){
         arr[i] = rand() % 50;
     }
 
 
-    //
+
     // print_array(arr, arr_size);
     cout << min(arr, arr_size) << "\n";
     cout << max(arr, arr_size) << "\n";
