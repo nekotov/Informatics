@@ -1,7 +1,7 @@
 #include <iostream>
 #include <cmath>
 
-
+// Дембицький
 using std::cin;
 using std::cout;
 
