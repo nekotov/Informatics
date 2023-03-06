@@ -118,6 +118,8 @@ int* sort(int* arr, int size){
 
 
 int main(){
+    setlocale(LC_ALL, "Russian");
+
     srand(time(NULL));
     int arr_size;
     std::cout << "Кількість елементів масиву для подальшої роботи: ";
