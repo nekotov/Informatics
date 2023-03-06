@@ -57,16 +57,16 @@ void bouble_sort(int* arr, int size){
 
 int* sort(int* arr, int size){
 
-    std::cout << "Як сортувати масив:\n";
-    std::cout << "1. Сортувати по спаданню\n";
-    std::cout << "2. Сортувати за зростанням\n";
+    std::cout << "Yak sortuvaty masyv:\n";
+    std::cout << "1. Sortuvaty po spadanni\n";
+    std::cout << "2. Sortuvaty za zrostannyam\n";
     int sort_type;
     std::cin >> sort_type;
 
-    std::cout << "Яку частину масиву сортувати:\n";
-    std::cout << "1. Сортувати увесь масив\n";
-    std::cout << "2. Сортувати ту частину масиву, елементи якої знаходяться між мінімальним та максимальним значенням масиву до сортування. Решта масиву залишається.\n";
-    std::cout << "3. Сортувати масив в частині між порядковими номерами, що задаються користувачем\n";
+    std::cout << "Yaku chastynu masyvu sortuvaty:\n";
+    std::cout << "1. Sortuvaty uves' masyv\n";
+    std::cout << "2. Sortuvaty tu chastynu masyvu, elementy yakoi znajodyatsya mizh minimal'nym ta maksymal'nym znachennyam masyvu do sortuvannya. Reshta masyvu zalyshayet'sya.\n";
+    std::cout << "3. Sortuvaty masyv v chastyni mizh poryadkovymy nomeramy, shcho zadayutsya korystuvachem\n";
 
     int sort_part;
     std::cin >> sort_part;
@@ -87,10 +87,10 @@ int* sort(int* arr, int size){
         }
     }else if(sort_part == 3){
         int start;
-        std::cout << "Введіть початковий індекс: ";
+        std::cout << "Vveditʹ pochatkovyy indeks: ";
         std::cin >> start;
         int end;
-        std::cout << "Введіть кінцевий індекс: ";
+        std::cout << "Vveditʹ kintsevyy indeks: ";
         std::cin >> end;
         size = end - start + 1;
         for (int i = 0; i < size; i++){
@@ -108,7 +108,7 @@ int* sort(int* arr, int size){
         return reversed_arr;
     }
 
-    std::cout << "\nСортований масив: ";
+    std::cout << "\nSortovanyy masyv: ";
     for(int i = 0; i < size; i++){
         std::cout << new_arr[i] << " ";
     }
@@ -118,39 +118,33 @@ int* sort(int* arr, int size){
 
 
 int main(){
-    #ifdef _WIN32
-        #include<windows.h>
-        SetConsoleOutputCP(1251);
-        SetConsoleCP(1251);
-    #endif
-
     srand(time(NULL));
     int arr_size;
-    std::cout << "Кількість елементів масиву для подальшої роботи: ";
+    std::cout << "Kilʹkistʹ elementiv masyvu dlya podalʹshoyi roboty: ";
     std::cin >> arr_size;
     int* arr = new int[arr_size];
     for(int i = 0; i < arr_size; i++){
         arr[i] = rand() % (4*K);
     }
 
-    std::cout << "Масив: ";
+    std::cout << "Masyv: ";
     for(int i = 0; i < arr_size; i++){
         std::cout << arr[i] << " ";
     }
 
-    std::cout << "\nМінімальне значення: " << min(arr, arr_size);
+    std::cout << "\nMinimalʹne znachennya: " << min(arr, arr_size);
 
-    std::cout << "\nГістограма: \n";
+    std::cout << "\nHistohrama: \n";
     histogram(arr, arr_size);
 
     int search_value;
-    std::cout << "\nВведіть значення для пошуку: ";
+    std::cout << "\nVveditʹ znachennya dlya poshuku: ";
     std::cin >> search_value;
     int index = linear_search(arr, arr_size, search_value);
     if(index == -1){
-        std::cout << "Значення не знайдено";
+        std::cout << "Znachennya ne znaydeno";
     } else {
-        std::cout << "Значення знайдено на позиції " << index;
+        std::cout << "Znachennya znaydeno na pozytsiyi " << index;
     }
 
     int* dupe = new int[arr_size];
@@ -166,7 +160,7 @@ int main(){
         dupe[arr_size - i - 1] = temp;
     }
 
-    std::cout << "\nПерші " << G << " елементів масиву: ";
+    std::cout << "\nPershi " << G << " elementiv masyvu: ";
     for(int i = 0; i < G; i++){
         std::cout << dupe[i] << " ";
     }
