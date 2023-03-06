@@ -1,1 +1,1 @@
-# Informatocs
+# Informatics
