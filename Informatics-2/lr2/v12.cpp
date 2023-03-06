@@ -119,8 +119,9 @@ int* sort(int* arr, int size){
 
 int main(){
     #ifdef _WIN32
-        setlocale(LC_ALL, "Russian");
-        SetConsoleOutputCP(866);
+        #include<windows.h>
+        SetConsoleOutputCP(1251);
+        SetConsoleCP(1251);
     #endif
 
     srand(time(NULL));
