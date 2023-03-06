@@ -118,7 +118,10 @@ int* sort(int* arr, int size){
 
 
 int main(){
-    setlocale(LC_ALL, "Russian");
+    #ifdef _WIN32
+        setlocale(LC_ALL, "Russian");
+        SetConsoleOutputCP(866);
+    #endif
 
     srand(time(NULL));
     int arr_size;
