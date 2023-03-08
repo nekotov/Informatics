@@ -1,6 +1,6 @@
 #include <iostream>
 
-int K = 6;
+int K = 5;
 int G = 2;
 
 int min(int* arr, int size){
@@ -27,7 +27,7 @@ void histogram(int* arr, int size){
     for(int i = 0; i < size; i++){
         std::cout << "a[" << i << "]=" << arr[i] << " ";
         for(int j = 0; j < arr[i]; j++){
-            std::cout << "+";
+            std::cout << "*";
         }
         std::cout << '\n';
     }
@@ -42,31 +42,36 @@ int linear_search(int* arr, int size, int value){
     return -1;
 }
 
-void bouble_sort(int* arr, int size){
+void selection_sort(int* arr, int size){
     for(int i = 0; i < size; i++){
-        for(int j = 0; j < size - 1; j++){
-            if(arr[j] > arr[j+1]){
-                int temp = arr[j];
-                arr[j] = arr[j+1];
-                arr[j+1] = temp;
+        int min = arr[i];
+        int min_index = i;
+        for(int j = i; j < size; j++){
+            if(arr[j] < min){
+                min = arr[j];
+                min_index = j;
             }
         }
+        int temp = arr[i];
+        arr[i] = arr[min_index];
+        arr[min_index] = temp;
     }
 }
 
 
+
 int* sort(int* arr, int size){
 
-    std::cout << "Yak sortuvaty masyv:\n";
-    std::cout << "1. Sortuvaty po spadanni\n";
-    std::cout << "2. Sortuvaty za zrostannyam\n";
+    std::cout << "\nкак сортировать?:\n";
+    std::cout << "1. спадание\n";
+    std::cout << "2. возростание\n";
     int sort_type;
     std::cin >> sort_type;
 
-    std::cout << "Yaku chastynu masyvu sortuvaty:\n";
-    std::cout << "1. Sortuvaty uves' masyv\n";
-    std::cout << "2. Sortuvaty tu chastynu masyvu, elementy yakoi znajodyatsya mizh minimal'nym ta maksymal'nym znachennyam masyvu do sortuvannya. Reshta masyvu zalyshayet'sya.\n";
-    std::cout << "3. Sortuvaty masyv v chastyni mizh poryadkovymy nomeramy, shcho zadayutsya korystuvachem\n";
+    std::cout << "какую часть:\n";
+    std::cout << "1. Весь\n";
+    std::cout << "2. между минимумом и максимумом\n";
+    std::cout << "3. указать\n";
 
     int sort_part;
     std::cin >> sort_part;
@@ -87,10 +92,10 @@ int* sort(int* arr, int size){
         }
     }else if(sort_part == 3){
         int start;
-        std::cout << "Vveditʹ pochatkovyy indeks: ";
+        std::cout << "стартовый индекс: ";
         std::cin >> start;
         int end;
-        std::cout << "Vveditʹ kintsevyy indeks: ";
+        std::cout << "конечный индекс: ";
         std::cin >> end;
         size = end - start + 1;
         for (int i = 0; i < size; i++){
@@ -98,7 +103,7 @@ int* sort(int* arr, int size){
         }
     }
 
-    bouble_sort(new_arr, size);
+    selection_sort(new_arr, size);
 
     if(sort_type == 1){
         int* reversed_arr = new int[size];
@@ -110,7 +115,7 @@ int* sort(int* arr, int size){
         }
     }
 
-    std::cout << "\nSortovanyy masyv: ";
+    std::cout << "\nСор. массив: ";
     for(int i = 0; i < size; i++){
         std::cout << new_arr[i] << " ";
     }
@@ -122,31 +127,31 @@ int* sort(int* arr, int size){
 int main(){
     srand(time(NULL));
     int arr_size;
-    std::cout << "Kilʹkistʹ elementiv masyvu dlya podalʹshoyi roboty: ";
+    std::cout << "кол-во элементов массива: ";
     std::cin >> arr_size;
     int* arr = new int[arr_size];
     for(int i = 0; i < arr_size; i++){
         arr[i] = rand() % (4*K);
     }
 
-    std::cout << "Masyv: ";
+    std::cout << "Массив: ";
     for(int i = 0; i < arr_size; i++){
         std::cout << arr[i] << " ";
     }
 
-    std::cout << "\nMinimalʹne znachennya: " << min(arr, arr_size);
+    std::cout << "\nmax число: " << max(arr, arr_size);
 
-    std::cout << "\nHistohrama: \n";
+    std::cout << "\nГистограмма: \n";
     histogram(arr, arr_size);
 
     int search_value;
-    std::cout << "\nVveditʹ znachennya dlya poshuku: ";
+    std::cout << "\nЗначение для поиска: ";
     std::cin >> search_value;
     int index = linear_search(arr, arr_size, search_value);
     if(index == -1){
-        std::cout << "Znachennya ne znaydeno";
+        std::cout << "не найдено";
     } else {
-        std::cout << "Znachennya znaydeno na pozytsiyi " << index;
+        std::cout << "на позиции " << index;
     }
 
     int* dupe = new int[arr_size];
@@ -154,15 +159,10 @@ int main(){
         dupe[i] = arr[i];
     }
 
-    bouble_sort(dupe, arr_size);
+    selection_sort(dupe, arr_size);
 
-    for(int i = 0; i < arr_size/2; i++){
-        int temp = dupe[i];
-        dupe[i] = dupe[arr_size - i - 1];
-        dupe[arr_size - i - 1] = temp;
-    }
 
-    std::cout << "\nPershi " << G << " elementiv masyvu: ";
+    std::cout << "\nПервые " << G << " элементов: ";
     for(int i = 0; i < G; i++){
         std::cout << dupe[i] << " ";
     }
