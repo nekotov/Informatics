@@ -49,11 +49,12 @@ double GeometricMean(int N) {
 }
 
 double GeometricMean(int N, int M) {
-    GeometricMean(N+M);
+    return GeometricMean(N+M);
 }
 
 double GeometricMean(float N) {
     std::cout << "float" << std::endl;
+    return 0;
 }
 
 int Factorial(int N) {
