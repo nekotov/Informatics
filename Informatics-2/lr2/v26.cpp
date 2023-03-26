@@ -97,8 +97,16 @@ int *sort(int *arr, int size) {
     if (sort_part == 2) {
         int minimal = min(arr, size);
         int maximum = max(arr, size);
+        printf("минимум: %d, максимум: %d\n", minimal, maximum);
         int start = linear_search(new_arr, size, minimal);
         int end = linear_search(new_arr, size, maximum);
+        printf("старт: %d, конец: %d", start, end);
+        if (start > end) {
+            int temp = start;
+            start = end;
+            end = temp;
+        }
+
         size = end - start + 1;
         for (int i = 0; i < size; i++) {
             new_arr[i] = arr[start + i];
@@ -153,7 +161,6 @@ int main() {
     }
 
     std::cout << "\nmax число: " << max(arr, arr_size);
-
     std::cout << "\nГистограмма: \n";
     histogram(arr, arr_size);
 
@@ -167,20 +174,20 @@ int main() {
         std::cout << "на позиции " << index;
     }
 
-    int *dupe = new int[arr_size];
+    int *copy = new int[arr_size];
     for (int i = 0; i < arr_size; i++) {
-        dupe[i] = arr[i];
+        copy[i] = arr[i];
     }
 
-    bubble_sort(dupe, arr_size);
+    bubble_sort(copy, arr_size);
 
 
     std::cout << "\nПервые " << G << " элементов: ";
     for (int i = 0; i < G; i++) {
-        std::cout << dupe[i] << " ";
+        std::cout << copy[i] << " ";
     }
 
-    delete[] dupe;
+    delete[] copy;
 
     int *sorted = sort(arr, arr_size);
 

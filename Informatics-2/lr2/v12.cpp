@@ -82,6 +82,11 @@ int *sort(int *arr, int size) {
         int maximum = max(arr, size);
         int start = linear_search(new_arr, size, minimal);
         int end = linear_search(new_arr, size, maximum);
+        if (start > end) {
+            int temp = start;
+            start = end;
+            end = temp;
+        }
         size = end - start + 1;
         for (int i = 0; i < size; i++) {
             new_arr[i] = arr[start + i];
