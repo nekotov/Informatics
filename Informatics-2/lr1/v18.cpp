@@ -12,9 +12,9 @@ int CountOfDigits(int N) {
     return count;
 }
 
-int* ArrayFromNumber(int N) {
+int *ArrayFromNumber(int N) {
     int l = CountOfDigits(N);
-    int* A = new int[l];
+    int *A = new int[l];
     int i = 0;
     for (; N > 0; N /= 10) {
         A[i] = N % 10;
@@ -26,7 +26,7 @@ int* ArrayFromNumber(int N) {
 
 double ArithmeticMean(int N) {
     int l = CountOfDigits(N);
-    int* A = ArrayFromNumber(N);
+    int *A = ArrayFromNumber(N);
     double sum = 0;
     int i = 0;
     while (i < l) {
@@ -38,7 +38,7 @@ double ArithmeticMean(int N) {
 
 double GeometricMean(int N) {
     int l = CountOfDigits(N);
-    int* A = ArrayFromNumber(N);
+    int *A = ArrayFromNumber(N);
     double mul = 1;
     int i = 0;
     while (i < l) {
@@ -49,7 +49,7 @@ double GeometricMean(int N) {
 }
 
 double GeometricMean(int N, int M) {
-    return GeometricMean(N+M);
+    return GeometricMean(N + M);
 }
 
 double GeometricMean(float N) {
@@ -92,7 +92,7 @@ int main() {
     int N;
     cin >> N;
     cout << CountOfDigits(N) << endl;
-    int* A = ArrayFromNumber(N);
+    int *A = ArrayFromNumber(N);
     for (int i = 0; i < CountOfDigits(N); i++) {
         cout << A[i] << " ";
     }

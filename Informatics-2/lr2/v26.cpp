@@ -1,7 +1,9 @@
+// Шроль 5,1
+
 #include <iostream>
 
 int K = 5;
-int G = 2;
+int G = 1;
 
 int min(int *arr, int size) {
     int min = arr[0];
@@ -27,10 +29,26 @@ void histogram(int *arr, int size) {
     for (int i = 0; i < size; i++) {
         std::cout << "a[" << i << "]=" << arr[i] << " ";
         for (int j = 0; j < arr[i]; j++) {
-            std::cout << "*";
+            std::cout << "|";
         }
         std::cout << '\n';
     }
+}
+
+int binary_search(int *arr, int size, int value) {
+    int left = 0;
+    int right = size - 1;
+    while (left <= right) {
+        int middle = (left + right) / 2;
+        if (arr[middle] == value) {
+            return middle;
+        } else if (arr[middle] < value) {
+            left = middle + 1;
+        } else {
+            right = middle - 1;
+        }
+    }
+    return -1;
 }
 
 int linear_search(int *arr, int size, int value) {
@@ -42,19 +60,15 @@ int linear_search(int *arr, int size, int value) {
     return -1;
 }
 
-void selection_sort(int *arr, int size) {
+void bubble_sort(int *arr, int size) {
     for (int i = 0; i < size; i++) {
-        int min = arr[i];
-        int min_index = i;
-        for (int j = i; j < size; j++) {
-            if (arr[j] < min) {
-                min = arr[j];
-                min_index = j;
+        for (int j = 0; j < size - i - 1; j++) {
+            if (arr[j] > arr[j + 1]) {
+                int temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
             }
         }
-        int temp = arr[i];
-        arr[i] = arr[min_index];
-        arr[min_index] = temp;
     }
 }
 
@@ -102,7 +116,7 @@ int *sort(int *arr, int size) {
         }
     }
 
-    selection_sort(new_arr, size);
+    bubble_sort(new_arr, size);
 
     if (sort_type == 1) {
         int *reversed_arr = new int[size];
@@ -158,7 +172,7 @@ int main() {
         dupe[i] = arr[i];
     }
 
-    selection_sort(dupe, arr_size);
+    bubble_sort(dupe, arr_size);
 
 
     std::cout << "\nПервые " << G << " элементов: ";

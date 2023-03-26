@@ -11,9 +11,9 @@ int len(int N) {
     return l;
 }
 
-int* ArrayFromNumber(int N) {
+int *ArrayFromNumber(int N) {
     int l = len(N);
-    int* A = new int[l];
+    int *A = new int[l];
     int i = 0;
     while (N > 0) {
         A[i] = N % 10;
@@ -25,9 +25,9 @@ int* ArrayFromNumber(int N) {
 
 double ArithmeticMean(int N) {
     int l = len(N);
-    int* A = ArrayFromNumber(N);
+    int *A = ArrayFromNumber(N);
     double sum = 0;
-    do{
+    do {
         sum += A[l - 1];
         l--;
     } while (l > 0);
@@ -36,7 +36,7 @@ double ArithmeticMean(int N) {
 
 double GeometricMean(int N) {
     int l = len(N);
-    int* A = ArrayFromNumber(N);
+    int *A = ArrayFromNumber(N);
     double mul = 1;
     for (int i = 0; i < l; i++) {
         mul *= A[i];
@@ -65,7 +65,7 @@ int SumOfEven(int N) {
 }
 
 int SumOfEven(int N, int M) {
-    SumOfEven(N+M);
+    SumOfEven(N + M);
 }
 
 void SumOfEven(float N) {
@@ -83,7 +83,7 @@ int SumOfOdd(int N) {
     return sum;
 }
 
-int main(){
+int main() {
     int N = 321;
     std::cout << "кількість цифр у числі N: " << len(N) << std::endl;
     std::cout << "середнє арифметичне цифр числа N: " << ArithmeticMean(N) << std::endl;

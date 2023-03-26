@@ -4,20 +4,20 @@
 using std::cin;
 using std::cout;
 
-double min(const double* arr, int size){
+double min(const double *arr, int size) {
     double min = arr[0];
-    for(int i = 1; i < size; i++){
-        if(arr[i] < min){
+    for (int i = 1; i < size; i++) {
+        if (arr[i] < min) {
             min = arr[i];
         }
     }
     return min;
 }
 
-double max(const double* arr, int size){
+double max(const double *arr, int size) {
     double max = arr[0];
-    for(int i = 1; i < size; i++){
-        if(arr[i] > max){
+    for (int i = 1; i < size; i++) {
+        if (arr[i] > max) {
             max = arr[i];
         }
     }
@@ -25,22 +25,22 @@ double max(const double* arr, int size){
 }
 
 
-double most_likely(double* arr, int size){
-    int* count = new int[size];
-    for(int i = 0; i < size; i++){
+double most_likely(double *arr, int size) {
+    int *count = new int[size];
+    for (int i = 0; i < size; i++) {
         count[i] = 0;
     }
-    for(int i = 0; i < size; i++){
-        for(int j = 0; j < size; j++){
-            if(arr[i] == arr[j]){
+    for (int i = 0; i < size; i++) {
+        for (int j = 0; j < size; j++) {
+            if (arr[i] == arr[j]) {
                 count[i]++;
             }
         }
     }
     int max = count[0];
     int index = 0;
-    for(int i = 1; i < size; i++){
-        if(count[i] > max){
+    for (int i = 1; i < size; i++) {
+        if (count[i] > max) {
             max = count[i];
             index = i;
         }
@@ -49,10 +49,10 @@ double most_likely(double* arr, int size){
 }
 
 
-void histogram(double* arr, int size){
-    for(int i = 0; i < size; i++){
+void histogram(double *arr, int size) {
+    for (int i = 0; i < size; i++) {
         cout << "a[" << i << "]=" << arr[i] << " ";
-        for(int j = 0; j < arr[i]; j++){
+        for (int j = 0; j < arr[i]; j++) {
             cout << "*";
         }
         cout << '\n';
@@ -60,9 +60,9 @@ void histogram(double* arr, int size){
 }
 
 
-double linear_search(const double* arr, int size, double value){
-    for(int i = 0; i < size; i++){
-        if(arr[i] == value){
+double linear_search(const double *arr, int size, double value) {
+    for (int i = 0; i < size; i++) {
+        if (arr[i] == value) {
             return i;
         }
     }
@@ -86,15 +86,15 @@ double linear_search(const double* arr, int size, double value){
 //    return -1;
 //}
 
-double insertion_sort(double* arr, int size, int start_index = 0, int end_index = -1){
-    if(end_index == -1){
+double insertion_sort(double *arr, int size, int start_index = 0, int end_index = -1) {
+    if (end_index == -1) {
         end_index = size - 1;
     }
     double count = 0;
-    for(int i = start_index + 1; i <= end_index; i++){
+    for (int i = start_index + 1; i <= end_index; i++) {
         double key = arr[i];
         int j = i - 1;
-        while(j >= start_index && arr[j] > key){
+        while (j >= start_index && arr[j] > key) {
             arr[j + 1] = arr[j];
             j--;
             count++;
@@ -104,15 +104,15 @@ double insertion_sort(double* arr, int size, int start_index = 0, int end_index 
     return count;
 }
 
-double selection_sort(double* arr, int size, int start_index = 0, int end_index = -1){
-    if(end_index == -1){
+double selection_sort(double *arr, int size, int start_index = 0, int end_index = -1) {
+    if (end_index == -1) {
         end_index = size - 1;
     }
     double count = 0;
-    for(int i = start_index; i <= end_index; i++){
+    for (int i = start_index; i <= end_index; i++) {
         int min_index = i;
-        for(int j = i + 1; j <= end_index; j++){
-            if(arr[j] < arr[min_index]){
+        for (int j = i + 1; j <= end_index; j++) {
+            if (arr[j] < arr[min_index]) {
                 min_index = j;
             }
             count++;
@@ -124,14 +124,14 @@ double selection_sort(double* arr, int size, int start_index = 0, int end_index 
     return count;
 }
 
-double bubble_sort(double* arr, int size, int start_index = 0, int end_index = -1){
-    if(end_index == -1){
+double bubble_sort(double *arr, int size, int start_index = 0, int end_index = -1) {
+    if (end_index == -1) {
         end_index = size - 1;
     }
     double count = 0;
-    for(int i = start_index; i <= end_index; i++){
-        for(int j = start_index; j <= end_index - i - 1; j++){
-            if(arr[j] > arr[j + 1]){
+    for (int i = start_index; i <= end_index; i++) {
+        for (int j = start_index; j <= end_index - i - 1; j++) {
+            if (arr[j] > arr[j + 1]) {
                 double temp = arr[j];
                 arr[j] = arr[j + 1];
                 arr[j + 1] = temp;
@@ -142,20 +142,20 @@ double bubble_sort(double* arr, int size, int start_index = 0, int end_index = -
     return count;
 }
 
-void print_array(double* arr, int size){
+void print_array(double *arr, int size) {
     cout << "Масив: ";
-    for(int i = 0; i < size; i++){
+    for (int i = 0; i < size; i++) {
         cout << arr[i] << " ";
     }
     cout << '\n';
 }
 
-double* sort(double* arr, int size, int sort_type, int sort_part, int sort_method){
+double *sort(double *arr, int size, int sort_type, int sort_part, int sort_method) {
     int start_index;
     int end_index;
-    double* sorted_arr;
-    if(sort_part == 2){
-        double* indexes = new double[2];
+    double *sorted_arr;
+    if (sort_part == 2) {
+        double *indexes = new double[2];
         indexes[0] = linear_search(arr, size, min(arr, size));
         indexes[1] = linear_search(arr, size, max(arr, size));
         insertion_sort(indexes, 2);
@@ -163,20 +163,20 @@ double* sort(double* arr, int size, int sort_type, int sort_part, int sort_metho
         end_index = indexes[1];
         size = end_index - start_index - 1;
         sorted_arr = new double[size];
-        for(int i = 0; i < size; i++){
+        for (int i = 0; i < size; i++) {
             sorted_arr[i] = arr[start_index + i + 1];
         }
         //print_array(sorted_arr, size);
 
-    }else{
+    } else {
         sorted_arr = new double[size];
-        for(int i = 0; i < size; i++){
+        for (int i = 0; i < size; i++) {
             sorted_arr[i] = arr[i];
         }
         start_index = 0;
         end_index = size - 1;
     }
-    switch(sort_method){
+    switch (sort_method) {
         case 1:
             insertion_sort(sorted_arr, size);
             break;
@@ -187,8 +187,8 @@ double* sort(double* arr, int size, int sort_type, int sort_part, int sort_metho
             bubble_sort(sorted_arr, size);
             break;
     }
-    if(sort_type == 2){
-        for(int i = 0; i < size / 2; i++){
+    if (sort_type == 2) {
+        for (int i = 0; i < size / 2; i++) {
             double temp = sorted_arr[i];
             sorted_arr[i] = sorted_arr[size - i - 1];
             sorted_arr[size - i - 1] = temp;
@@ -200,7 +200,7 @@ double* sort(double* arr, int size, int sort_type, int sort_part, int sort_metho
     return sorted_arr;
 }
 
-double* sort_wrapper(double* arr, int size){
+double *sort_wrapper(double *arr, int size) {
     cout << "Як сортувати масив: " << '\n';
     cout << "1. За зростанням" << '\n';
     cout << "2. За спаданням" << '\n';
@@ -208,7 +208,9 @@ double* sort_wrapper(double* arr, int size){
     cin >> sort_type;
     cout << "Яку частину масиву сортувати: " << '\n';
     cout << "1. сортувати увесь масив;" << '\n';
-    cout << "2. сортувати ту частину масиву, елементи якої знаходяться між мінімальним та максимальним значенням масиву до сортування." << '\n';
+    cout
+            << "2. сортувати ту частину масиву, елементи якої знаходяться між мінімальним та максимальним значенням масиву до сортування."
+            << '\n';
     int sort_part;
     cin >> sort_part;
     cout << "Яким алгоритмом сортувати: " << '\n';
@@ -222,17 +224,14 @@ double* sort_wrapper(double* arr, int size){
 }
 
 
-
-
-
-int main(){
+int main() {
     srand(time(NULL));
 
     cout << "Кількість елементів масиву для подальшої роботи: ";
     int arr_size;
     cin >> arr_size;
-    double* arr = new double[arr_size];
-    for(int i = 0; i < arr_size; i++){
+    double *arr = new double[arr_size];
+    for (int i = 0; i < arr_size; i++) {
         arr[i] = rand() % 50;
     }
 
@@ -250,7 +249,7 @@ int main(){
     cout << linear_search(arr, arr_size, value) << "\n";
     //cout << binary_search(arr, arr_size, value) << "\n";
 
-    double* sorted_arr = sort_wrapper(arr, arr_size);
+    double *sorted_arr = sort_wrapper(arr, arr_size);
     return 0;
 
 

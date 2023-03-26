@@ -3,7 +3,7 @@
 //
 #include <stdio.h>
 
-int main(){
+int main() {
     int i1;
     double i2, z;
     i1 = 15;

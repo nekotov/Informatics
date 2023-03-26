@@ -8,6 +8,6 @@ int main() {
     x1 = 3.5;
     x2 = -1.8;
     x = x1 + x2;
-    printf("x1 = %f x2 = %f x = %d", x1, x2, (int)x);
+    printf("x1 = %f x2 = %f x = %d", x1, x2, (int) x);
     return 0;
 }
