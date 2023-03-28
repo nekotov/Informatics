@@ -20,6 +20,15 @@ int CountOfDigits(int N) {
     return count;
 }
 
+int CountOfDigits(int N, int M) { // N+M, перевантажена функція
+    return CountOfDigits(N + M);
+}
+
+int CountOfDigits(float N) { // float
+    std::cout << "not int" << std::endl;
+    return 0;
+}
+
 // організувати масив, елементами якого є цифри числа N;
 int *ArrayFromNumber(int N) {
     int l = CountOfDigits(N);
