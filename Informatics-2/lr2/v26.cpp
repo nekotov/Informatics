@@ -1,6 +1,9 @@
 // Шроль 5,1
 
 #include <iostream>
+#include <cstdlib>
+
+using namespace std;
 
 int K = 5;
 int G = 1;
