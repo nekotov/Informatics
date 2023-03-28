@@ -72,7 +72,6 @@ void bubble_sort(int *arr, int size) {
     }
 }
 
-
 int *sort(int *arr, int size) {
 
     std::cout << "\nкак сортировать?:\n";
