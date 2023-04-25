@@ -1,2 +1,4 @@
 CMake*
 CMakeLists.txt
+*.dSYM
+v*
