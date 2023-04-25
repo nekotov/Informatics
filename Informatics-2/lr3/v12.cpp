@@ -104,7 +104,6 @@ switch (cases) {
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
 
-                // arr is square matrix, i need to find x area of square
                 // # # # # #
                 // # # # # #
                 // # # x # #
@@ -190,8 +189,6 @@ int main() {
     for (int i = 0; i < n; i++) {
         arr[i] = new int[n];
     }
-
-    // random range = from –(6+3) to (6+15)
 
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
