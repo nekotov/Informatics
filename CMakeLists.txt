@@ -3,4 +3,4 @@ project(Informatics)
 
 set(CMAKE_C_STANDARD 11)
 
-add_executable(Informatics/Informatics-2/rl3/v12.cpp)
+add_executable(Informatics/Informatics-2/rl2/v19.cpp)
