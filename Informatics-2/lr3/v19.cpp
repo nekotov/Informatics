@@ -112,7 +112,6 @@ vector<int> cuber(int** arr, int n, int cube) {
 int main(){
     srand(time(NULL));
 
-
     std::string Stroka = "";
 
     cout << "1. тільки з літер" << endl;
@@ -146,14 +145,11 @@ int main(){
     cout << "Replaced the same: " << RepSame(Stroka, Stroka2) << endl;
     cout << "Counted the same: " << count_same(Stroka, Stroka2) << endl;
 
-
     cout << "\n\n\n";
 
     cout << "Size of cube: ";
     int size2;
     cin >> size2;
-
-
 
     int **arr = new int*[size2];
     for (int i = 0; i < size2; i++) {
