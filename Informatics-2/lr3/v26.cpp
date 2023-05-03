@@ -3,8 +3,8 @@
 
 using namespace std;
 
-const int K = 9;
-const int G = 3;
+const int K = 5;
+const int G = 1;
 
 string sort(string str) {
     if (str.length() <= 1) {
@@ -58,42 +58,44 @@ int count_same(const string& str, const string& str2) {
     return count;
 }
 
-vector<int> cuber(int** arr, int n, int cube) {
+vector<int> cuber(int** arr, int size, int cube) {
     vector<int> out;
     switch (cube) {
         case 0:
-            for (int i = 0; i < n; i++) {
-                for (int j = 0; j < n; j++) {
-                    if (j +1 >= n - i) {
-                        cout << arr[i][j] << " ";
-                        out.push_back(arr[i][j]);
-                    } else {
-                        cout << "  ";
-                    }
-                }
-                cout << endl;
-            }
-            break;
-
-        case 1:
-
-            for(int row = 0; row < n; row++){
-                for (int col = 0; col < n; col++){
-
-                    if(col-row >=0 && n-row > col+1){
+            for(int row = 0; row < size; row++){
+                for (int col = 0; col < size; col++) {
+                    if(col >= row){
                         out.push_back(arr[row][col]);
-                        cout << arr[row][col] << " ";
-                    }else if(row-col>0 ){
-                        out.push_back(arr[row][col]);
+
                         cout << arr[row][col] << " ";
                     }else{
-                        cout << "?" << " ";
+                        cout << "#" << " ";
                     }
                 }
                 cout << "\n";
             }
-
             cout << "\n";
+
+
+            break;
+
+        case 1:
+
+            for(int row = 0; row < size; row++){
+                for (int col = 0; col < size; col++){
+                    if(col-row >=0 && size-row > col){
+                        out.push_back(arr[row][col]);
+                        cout << arr[row][col] << " ";
+                    }else if(row-col>=0 && col+1 >= size - row){
+                        out.push_back(arr[row][col]);
+
+                        cout << arr[row][col] << " ";
+                    }else{
+                        cout << "# ";
+                    }
+                }
+                cout << "\n";
+            }
 
             break;
 
