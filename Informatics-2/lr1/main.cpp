@@ -147,7 +147,7 @@ void seventh(float N) {
 }
 
 int main() {
-    int N = 321;
+    int N = 15;
     cout << first(N) << "\n";
     cout << second(N) << "\n";
     cout << third(N) << "\n";

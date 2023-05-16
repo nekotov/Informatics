@@ -96,7 +96,7 @@ int seventh(int N) {
 }
 
 int main() {
-    int N = 321;
+    int N = 16;
 
     cout << "first: " << first(N) << endl;
     cout << "second: ";
