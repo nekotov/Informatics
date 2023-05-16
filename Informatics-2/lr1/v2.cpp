@@ -58,7 +58,7 @@ double ArithmeticMean(int N) {
 }
 
 //do while
-long GeometricMean(int N) {
+double GeometricMean(int N) {
     int l = len(N);
     int *A = ArrayFromNumber(N);
     double sum = 1;
@@ -71,7 +71,7 @@ long GeometricMean(int N) {
 }
 
 //for
-long Factorial(int N) {
+int Factorial(int N) {
     long fact = 1;
     for (int i = 1; i <= N; i++) {
         fact *= i;
